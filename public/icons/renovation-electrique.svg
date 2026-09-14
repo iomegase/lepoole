@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="m8 30 24-20 24 20v24H17V37" stroke="var(--icon-stroke,#171717)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m34 24-7 11h6l-4 11 12-15h-7l5-7" stroke="var(--icon-accent,#B79252)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 55h44" stroke="var(--icon-accent,#B79252)" stroke-width="3" stroke-linecap="round"/>
+</svg>

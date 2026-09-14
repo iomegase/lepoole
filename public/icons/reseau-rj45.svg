@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="M24 8h16v13l-4 4v8H28v-8l-4-4V8Z" stroke="var(--icon-stroke,#171717)" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M28 14v6M33 14v6M38 14v6" stroke="var(--icon-accent,#B79252)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 33v8M14 49h36M14 49v7M32 41v15M50 49v7" stroke="var(--icon-stroke,#171717)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="14" cy="57" r="2" fill="var(--icon-accent,#B79252)"/>
+  <circle cx="32" cy="57" r="2" fill="var(--icon-accent,#B79252)"/>
+  <circle cx="50" cy="57" r="2" fill="var(--icon-accent,#B79252)"/>
+</svg>

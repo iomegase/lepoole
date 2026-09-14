@@ -25,7 +25,7 @@ L’admin permet de :
 - modifier et publier/masquer chaque page ville ;
 - modifier et publier/masquer chaque page service ;
 - créer, modifier, publier/masquer et supprimer les réalisations ;
-- renseigner des URLs de photos avant/après.
+- envoyer des photos avant/après (JPG, PNG ou WebP, 4 Mo maximum par photo), les prévisualiser et les retirer ; une URL externe reste possible.
 
 ## Installation
 
@@ -50,6 +50,14 @@ NEXT_PUBLIC_SITE_URL="https://lepoole-electric.fr"
 NEXT_PUBLIC_PHONE="+33100000000"
 NEXT_PUBLIC_EMAIL="contact@lepoole-electric.fr"
 ```
+
+Pour les photos des réalisations, renseigner `SUPABASE_URL` et
+`SUPABASE_SERVICE_ROLE_KEY` côté serveur, comme pour les photos de devis.
+L’application crée automatiquement le bucket public `project-images` lors du
+premier envoi. Son nom peut être changé via `SUPABASE_PROJECT_BUCKET`.
+Conserver le bucket `quote-requests` privé : les photos des demandes de devis
+ne sont jamais destinées au site public. Reproduire ces variables dans Vercel
+pour que l’upload fonctionne aussi en production.
 
 Pour produire le hash du mot de passe admin :
 

@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { isAdmin } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
+import { ProjectImagesFields } from '@/components/project-images-fields'
 import {
   createProjectAction,
   deleteProjectAction,
@@ -68,8 +69,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             <label className="text-sm font-bold md:col-span-2">Problématique<textarea name="problem" required className={area} /></label>
             <label className="text-sm font-bold md:col-span-2">Travaux effectués<textarea name="workDone" required className={area} /></label>
             <label className="text-sm font-bold md:col-span-2">Résultat<textarea name="result" required className={area} /></label>
-            <label className="text-sm font-bold">Photo avant (URL)<input name="beforeImage" type="url" className={field} /></label>
-            <label className="text-sm font-bold">Photo après (URL)<input name="afterImage" type="url" className={field} /></label>
+            <ProjectImagesFields />
             <button className="rounded-xl bg-black px-4 py-3 font-bold text-white md:col-span-2">Publier la réalisation</button>
           </form>
         </section>
@@ -118,8 +118,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             <label className="text-sm font-bold md:col-span-2">Problématique<textarea name="problem" defaultValue={p.problem} className={area} /></label>
             <label className="text-sm font-bold md:col-span-2">Travaux<textarea name="workDone" defaultValue={p.workDone} className={area} /></label>
             <label className="text-sm font-bold md:col-span-2">Résultat<textarea name="result" defaultValue={p.result} className={area} /></label>
-            <label className="text-sm font-bold">Photo avant<input name="beforeImage" type="url" defaultValue={p.beforeImage ?? ''} className={field} /></label>
-            <label className="text-sm font-bold">Photo après<input name="afterImage" type="url" defaultValue={p.afterImage ?? ''} className={field} /></label>
+            <ProjectImagesFields beforeImage={p.beforeImage ?? ''} afterImage={p.afterImage ?? ''} />
             <label className="flex items-center gap-2 text-sm font-bold md:col-span-2"><input type="checkbox" name="published" defaultChecked={p.published} /> Réalisation publiée</label>
             <button className="rounded-xl bg-black px-4 py-3 font-bold text-white md:col-span-2">Enregistrer la réalisation</button>
           </form>
