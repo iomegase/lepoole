@@ -32,8 +32,9 @@ L’admin permet de :
 ```bash
 npm install
 cp .env.example .env
+# Renseigner DATABASE_URL dans .env avant les commandes suivantes.
 npm run prisma:generate
-npm run prisma:migrate
+npm run prisma:deploy
 npm run prisma:seed
 npm run dev
 ```
@@ -65,6 +66,31 @@ openssl rand -base64 32
 ## Base de données
 
 Le projet utilise Prisma + PostgreSQL. Supabase Postgres, Neon ou Vercel Postgres conviennent.
+
+### Connexion Supabase
+
+Dans le projet Supabase, ouvrir **Connect**, sélectionner **Session pooler**
+et copier la connexion PostgreSQL sur le port **5432** dans `DATABASE_URL`
+du fichier `.env`. Remplacer le mot de passe par celui de la base de données,
+avec ses caractères spéciaux encodés pour une URL. Conserver `sslmode=require`
+(utiliser `&sslmode=require` si l'URI contient déjà des paramètres).
+Le pooler de session fonctionne en IPv4 et peut servir aux requêtes Prisma
+ainsi qu'à l'application des migrations existantes.
+
+Utiliser l'URI PostgreSQL, pas l'URL HTTPS du projet ni une clé API Supabase.
+Le fichier `.env` est exclu de Git. Sur une base dédiée à ce site, exécuter :
+
+```bash
+npm run prisma:generate
+npm run prisma:deploy
+npm run prisma:seed
+npm run dev
+```
+
+`prisma:deploy` applique la migration existante ; `prisma:migrate` sert à
+créer de nouvelles migrations pendant le développement.
+
+Documentation : https://supabase.com/docs/guides/database/prisma
 
 En production :
 

@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import services from '../content/services.json'
 
 const prisma = new PrismaClient()
 
@@ -12,18 +13,6 @@ const cities = [
   ['Villennes-sur-Seine','electricien-villennes-sur-seine',false,6],
   ['Poissy','electricien-poissy',false,7],
   ['Les Mureaux','electricien-les-mureaux',false,8],
-] as const
-
-const services = [
-  ['Tableau électrique','tableau-electrique'],
-  ['Rénovation électrique','renovation-electrique'],
-  ['Dépannage électrique','depannage-electrique'],
-  ['Domotique','domotique'],
-  ['Interphone','interphone'],
-  ['Alarme','alarme'],
-  ['Réseau RJ45','reseau-rj45'],
-  ['Motorisation de portail','motorisation-portail'],
-  ['Borne de recharge / IRVE','borne-recharge-irve'],
 ] as const
 
 async function main() {
@@ -54,16 +43,11 @@ async function main() {
     })
   }
 
-  for (const [name, slug] of services) {
+  for (const service of services) {
     await prisma.service.upsert({
-      where: { slug },
+      where: { slug: service.slug },
       update: {},
-      create: {
-        name, slug,
-        title: `${name} à Triel-sur-Seine et alentours`,
-        excerpt: `${name} par un électricien local implanté à Triel-sur-Seine depuis 2002.`,
-        content: `Présentation détaillée du service ${name}. Décrire les situations traitées, les signes d'alerte, la méthode d'intervention, les normes applicables et les communes couvertes. Ajouter ensuite des réalisations réelles liées à ce service.`,
-      },
+      create: service,
     })
   }
 }

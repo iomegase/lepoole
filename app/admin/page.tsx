@@ -98,7 +98,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
             <input type="hidden" name="id" value={service.id} />
             <label className="text-sm font-bold">Titre SEO / H1<input name="title" defaultValue={service.title} className={field} /></label>
             <label className="text-sm font-bold">Résumé<textarea name="excerpt" defaultValue={service.excerpt} className={area} /></label>
-            <label className="text-sm font-bold">Contenu<textarea name="content" defaultValue={service.content} className={`${area} min-h-52`} /></label>
+            <label className="text-sm font-bold">Contenu (Markdown : ## titre, **gras**, - liste)<textarea name="content" defaultValue={service.content} className={`${area} min-h-52`} /></label>
             <label className="flex items-center gap-2 text-sm font-bold"><input type="checkbox" name="published" defaultChecked={service.published} /> Page publiée</label>
             <button className="rounded-xl border border-black/15 px-4 py-2 font-bold">Enregistrer {service.name}</button>
           </form>
