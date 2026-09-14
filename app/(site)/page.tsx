@@ -1,3 +1,4 @@
+import { siteUrl } from '@/lib/site-url'
 import Link from 'next/link'
 import { getCities, getProjects, getSettings } from '@/lib/data'
 import { ServiceGrid } from '@/components/service-grid'
@@ -12,7 +13,7 @@ export default async function HomePage() {
     name: settings.companyName,
     founder: settings.founderName,
     foundingDate: String(settings.foundedYear),
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://lepoole-electric.fr',
+    url: siteUrl,
     telephone: settings.phone || undefined,
     email: settings.email || undefined,
     address: settings.address || undefined,

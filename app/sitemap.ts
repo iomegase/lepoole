@@ -1,8 +1,9 @@
+import { siteUrl } from '@/lib/site-url'
 import type { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lepoole-electric.fr'
+  const base = siteUrl
   const [cities, services, projects] = await Promise.all([
     prisma.city.findMany({ where: { published: true } }),
     prisma.service.findMany({ where: { published: true } }),

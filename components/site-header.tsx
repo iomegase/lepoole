@@ -14,7 +14,7 @@ export async function SiteHeader() {
           <Link href="/#realisations">Réalisations</Link>
           <Link href="/#zone">Secteur</Link>
         </nav>
-        {phone ? <a className="btn btn-dark whitespace-nowrap" href={`tel:${phone}`}>Appeler Stan</a> : <Link className="btn btn-dark" href="/#contact">Contact</Link>}
+        {phone ? <a className="btn btn-dark whitespace-nowrap" href={`tel:${phone}`}>Appeler</a> : <Link className="btn btn-dark" href="/#contact">Contact</Link>}
       </div>
     </header>
   )
