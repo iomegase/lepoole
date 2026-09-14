@@ -69,13 +69,13 @@ Le projet utilise Prisma + PostgreSQL. Supabase Postgres, Neon ou Vercel Postgre
 
 ### Connexion Supabase
 
-Dans le projet Supabase, ouvrir **Connect**, sélectionner **Session pooler**
-et copier la connexion PostgreSQL sur le port **5432** dans `DATABASE_URL`
-du fichier `.env`. Remplacer le mot de passe par celui de la base de données,
-avec ses caractères spéciaux encodés pour une URL. Conserver `sslmode=require`
-(utiliser `&sslmode=require` si l'URI contient déjà des paramètres).
-Le pooler de session fonctionne en IPv4 et peut servir aux requêtes Prisma
-ainsi qu'à l'application des migrations existantes.
+Dans le projet Supabase, ouvrir **Connect** et copier deux URI PostgreSQL :
+le **Transaction pooler** (port **6543**, avec `pgbouncer=true`) dans
+`DATABASE_URL` pour l'application hébergée sur Vercel, et le **Session pooler**
+(port **5432**) dans `DIRECT_URL` pour les migrations Prisma. Encoder les
+caractères spéciaux du mot de passe pour une URL. `npm run prisma:deploy` et
+`npm run prisma:migrate` utilisent automatiquement `DIRECT_URL` ; les requêtes
+du site utilisent `DATABASE_URL`.
 
 Utiliser l'URI PostgreSQL, pas l'URL HTTPS du projet ni une clé API Supabase.
 Le fichier `.env` est exclu de Git. Sur une base dédiée à ce site, exécuter :

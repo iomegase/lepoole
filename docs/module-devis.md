@@ -17,10 +17,10 @@ Les prix et taux sont copiés dans les lignes. Un devis envoyé n’est plus éd
 
 Les migrations `202609141330_add_quote_system` et `202609141400_quote_privacy` ont déjà été appliquées à la base Supabase configurée. Elles ajoutent les tables sans supprimer les données existantes. Les nouvelles tables ont RLS activé et aucun accès Data API public ; Prisma utilise la connexion serveur.
 
-Pour une autre base, appliquer les migrations avec une connexion de session compatible. Le schéma actuel utilise `DATABASE_URL` ; la présence de `DIRECT_URL` seule ne change pas la connexion de Prisma CLI.
+Pour une autre base, appliquer les migrations avec une connexion de session compatible. `prisma:deploy` utilise `DIRECT_URL` si elle est définie, ou `DATABASE_URL` à défaut. Le site utilise `DATABASE_URL` pour les requêtes.
 
 ```sh
-node --env-file=.env -e 'const {spawnSync}=require("node:child_process");const r=spawnSync("npm",["run","prisma:deploy"],{stdio:"inherit",env:{...process.env,DATABASE_URL:process.env.DIRECT_URL||process.env.DATABASE_URL}});process.exit(r.status??1)'
+npm run prisma:deploy
 npm run prisma:generate
 ```
 
