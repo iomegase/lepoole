@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ])
   return [
     { url: base, priority: 1 },
+    { url: `${base}/demande-de-devis`, priority: .8 },
     ...cities.map(c => ({ url: `${base}${c.isPrimary ? '/electricien-triel-sur-seine' : `/${c.slug}`}`, priority: c.isPrimary ? 1 : .8 })),
     ...services.map(s => ({ url: `${base}/services/${s.slug}`, priority: .8 })),
     ...projects.map(p => ({ url: `${base}/realisations/${p.slug}`, priority: .7 })),

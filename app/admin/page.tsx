@@ -29,7 +29,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     <div className="mx-auto max-w-7xl">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div><div className="text-sm font-bold text-black/45">LE POOLE ELECTRIC</div><h1 className="text-3xl font-black">Administration</h1><p className="mt-1 text-sm text-black/55">Contenu public, SEO local et réalisations.</p></div>
-        <div className="flex gap-2"><a href="/" className="rounded-full border border-black/15 bg-white px-5 py-3 text-sm font-bold">Voir le site</a><form action={logoutAction}><button className="rounded-full bg-black px-5 py-3 text-sm font-bold text-white">Déconnexion</button></form></div>
+        <div className="flex flex-wrap gap-2"><a href="/admin/devis" className="rounded-full border border-black/15 bg-white px-5 py-3 text-sm font-bold">Devis</a><a href="/admin/catalogue" className="rounded-full border border-black/15 bg-white px-5 py-3 text-sm font-bold">Catalogue</a><a href="/" className="rounded-full border border-black/15 bg-white px-5 py-3 text-sm font-bold">Voir le site</a><form action={logoutAction}><button className="rounded-full bg-black px-5 py-3 text-sm font-bold text-white">Déconnexion</button></form></div>
       </div>
 
       {saved && <div className="mt-6 rounded-2xl bg-emerald-100 px-5 py-4 text-sm font-bold text-emerald-900">Modification enregistrée.</div>}

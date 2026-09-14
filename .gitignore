@@ -4,3 +4,6 @@ node_modules/
 !.env.example
 *.tsbuildinfo
 next-env.d.ts
+
+.DS_Store
+.devis-backup-*/
