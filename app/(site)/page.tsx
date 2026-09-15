@@ -40,11 +40,11 @@ export default async function HomePage() {
         }}
       />
 
-      <section className="relative border-b border-black/10 bg-[#f4f0e7]">
-        <div className="pointer-events-none absolute -left-32 top-32 size-[420px] rounded-full bg-white/40 blur-3xl" />
+<section className="relative  bg-[#f4f0e7]">
+  <div className="pointer-events-none absolute -left-32 top-32 size-[420px] rounded-full bg-white/40 blur-3xl" />
 
-        <div
-          className="
+  <div
+    className="
       container
       relative
       grid
@@ -56,34 +56,42 @@ export default async function HomePage() {
       lg:gap-10
       lg:py-10
     "
-        >
-          {/* TEXTE */}
-          <div className="flex flex-col justify-center py-5 sm:py-8 lg:py-16">
-            <div className="eyebrow text-[10px] sm:text-[11px]">
-              Électricien · Triel-sur-Seine
-            </div>
+  >
+    {/* TEXTE */}
+    <div className="flex flex-col justify-center py-5 sm:py-8 lg:py-16">
+      <div className="eyebrow text-[10px] sm:text-[11px]">
+        Électricien · Triel-sur-Seine
+      </div>
 
-            <h1
-              className="
+      <h1
+        className="
           mt-5
           max-w-[760px]
+          px-2
+          py-3
           text-[clamp(2.65rem,11vw,4rem)]
           font-black
           uppercase
-          leading-[0.88]
+          leading-[0.96]
           tracking-[-0.065em]
           text-[#171714]
+
           sm:mt-6
+          sm:px-0
+          sm:py-0
           sm:text-[clamp(3.4rem,9vw,5rem)]
+          sm:leading-[0.93]
+
           lg:mt-7
           lg:text-[clamp(4.7rem,6.8vw,6.7rem)]
+          lg:leading-[0.9]
         "
-            >
-              {settings.heroTitle}
-            </h1>
+      >
+        {settings.heroTitle}
+      </h1>
 
-            <p
-              className="
+      <p
+        className="
           mt-6
           max-w-xl
           text-[15px]
@@ -95,16 +103,16 @@ export default async function HomePage() {
           lg:text-lg
           lg:leading-8
         "
-            >
-              {settings.heroSubtitle}
-            </p>
+      >
+        {settings.heroSubtitle}
+      </p>
 
-            {/* CTA */}
-            <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
-              {phone && (
-                <a
-                  href={`tel:${phone}`}
-                  className="
+      {/* CTA */}
+      <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+        {phone && (
+          <a
+            href={`tel:${phone}`}
+            className="
               inline-flex
               min-h-[50px]
               items-center
@@ -122,14 +130,14 @@ export default async function HomePage() {
               hover:bg-[#ff7432]
               sm:text-[15px]
             "
-                >
-                  Demander une intervention
-                </a>
-              )}
+          >
+            Demander une intervention
+          </a>
+        )}
 
-              <Link
-                href="#realisations"
-                className="
+        <Link
+          href="#realisations"
+          className="
             inline-flex
             min-h-[50px]
             items-center
@@ -148,83 +156,84 @@ export default async function HomePage() {
             hover:bg-white
             sm:text-[15px]
           "
-              >
-                Voir les chantiers
-              </Link>
-            </div>
+        >
+          Voir les chantiers
+        </Link>
+      </div>
 
-            {/* ARGUMENTS */}
-            <div
-              className="
+      {/* ARGUMENTS */}
+      <div
+        className="
           mt-8
-          grid
-          grid-cols-2
-          gap-x-4
-          gap-y-3
+          hidden
           border-t
           border-black/10
           pt-5
+
           sm:flex
           sm:flex-wrap
           sm:gap-x-7
+
           lg:mt-10
           lg:pt-6
         "
-            >
-              <span className="text-[10px] font-black uppercase tracking-[0.1em] text-black/45 sm:text-xs">
-                Artisan local
-              </span>
+      >
+        <span className="text-xs font-black uppercase tracking-[0.1em] text-black/45">
+          Artisan local
+        </span>
 
-              <span className="text-[10px] font-black uppercase tracking-[0.1em] text-black/45 sm:text-xs">
-                Rénovation & neuf
-              </span>
+        <span className="text-xs font-black uppercase tracking-[0.1em] text-black/45">
+          Rénovation & neuf
+        </span>
 
-              <span className="col-span-2 text-[10px] font-black uppercase tracking-[0.1em] text-black/45 sm:text-xs">
-                Installation connectée
-              </span>
-            </div>
-          </div>
+        <span className="text-xs font-black uppercase tracking-[0.1em] text-black/45">
+          Installation connectée
+        </span>
+      </div>
+    </div>
 
-          {/* IMAGE HERO */}
-          <div
-            className="
+    {/* IMAGE HERO */}
+    <div
+      className="
         relative
+        hidden
         aspect-[4/5]
         w-full
         overflow-hidden
         rounded-[22px]
         bg-[#171714]
         shadow-[0_24px_65px_rgba(23,23,20,0.18)]
+        sm:block
         sm:aspect-[16/10]
         lg:aspect-auto
         lg:min-h-[610px]
       "
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1683295083329-4d4738291f3a?auto=format&fit=crop&w=1600&q=82"
-              alt="Électricien professionnel en intervention"
-              fill
-              priority
-              quality={82}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 48vw"
-              className="
+    >
+      <Image
+        src="https://images.unsplash.com/photo-1683295083329-4d4738291f3a?auto=format&fit=crop&w=1600&q=82"
+        alt="Électricien professionnel en intervention"
+        fill
+        priority
+        quality={82}
+        sizes="(max-width: 1024px) 100vw, 48vw"
+        className="
           object-cover
           object-center
           transition-transform
           duration-700
           lg:hover:scale-[1.025]
         "
-            />
+      />
 
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/5" />
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/5" />
 
-            {/* BADGE */}
-            <div
-              className="
+      {/* BADGE */}
+      <div
+        className="
           absolute
-          left-4
-          top-4
+          left-5
+          top-5
           flex
           items-center
           gap-2
@@ -232,108 +241,138 @@ export default async function HomePage() {
           bg-white/95
           px-3
           py-2
-          text-[9px]
+          text-[10px]
           font-black
           uppercase
           tracking-[0.12em]
           text-[#171714]
           shadow-lg
-          sm:left-5
-          sm:top-5
-          sm:text-[10px]
         "
-            >
-              <span className="size-2 rounded-full bg-[#f26422]" />
-              Depuis {settings.foundedYear}
-            </div>
+      >
+        <span className="size-2 rounded-full bg-[#f26422]" />
+        Depuis {settings.foundedYear}
+      </div>
 
-            {/* CONTENU BAS IMAGE */}
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
-              <div className="max-w-md">
-                <div className="text-[10px] font-black uppercase tracking-[0.14em] text-white/55">
-                  Le Poole Electric
-                </div>
+      {/* CONTENU BAS IMAGE */}
+      <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+        <div className="max-w-md">
+          <div className="text-[10px] font-black uppercase tracking-[0.14em] text-white/55">
+            Le Poole Electric
+          </div>
 
-                <div
-                  className="
+          <div
+            className="
               mt-2
               max-w-[330px]
-              text-xl
+              text-2xl
               font-black
               uppercase
               leading-[1.05]
               tracking-[-0.04em]
               text-white
-              sm:text-2xl
               md:text-3xl
             "
-                >
-                  Une installation propre, fiable et pensée pour durer.
-                </div>
-              </div>
-            </div>
+          >
+            Une installation propre, fiable et pensée pour durer.
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>  
 
-      <section className="bg-[#fffdf8] py-16 md:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="eyebrow justify-center">Pourquoi nous choisir</div>
+   <section className="bg-[#fffdf8] py-16 md:py-20">
+  <div className="container">
+    <div className="mx-auto max-w-3xl text-center">
+      <div className="eyebrow justify-center">
+        Pourquoi nous choisir
+      </div>
 
-            <h2 className="mt-4 text-[clamp(2.3rem,4.5vw,4.2rem)] font-black uppercase leading-[.95] tracking-[-0.055em]">
-              Un engagement constant vers l’excellence.
-            </h2>
-          </div>
+      <h2 className="mt-4 text-[clamp(2.3rem,4.5vw,4.2rem)] font-black uppercase leading-[.95] tracking-[-0.055em]">
+        Un engagement constant vers l’excellence.
+      </h2>
+    </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 md:gap-5 xl:grid-cols-4">
-            {[
-              {
-                label: "+ 24 ans d’expérience",
-                text: "Une entreprise implantée localement et une expérience construite sur le terrain.",
-                icon: Medal,
-              },
-              {
-                label: "Diagnostic",
-                text: "Une intervention expliquée clairement avant de lancer les travaux.",
-                icon: SearchCheck,
-              },
-              {
-                label: "Sécurité",
-                text: "Des installations pensées pour être sûres, durables et faciles à maintenir.",
-                icon: ShieldCheck,
-              },
-              {
-                label: "Proximité",
-                text: "Triel-sur-Seine et les communes voisines au cœur de notre secteur.",
-                icon: MapPin,
-              },
-            ].map((item) => {
-              const Icon = item.icon;
+    <div
+      className="
+        mt-10
+        flex
+        snap-x
+        snap-mandatory
+        gap-4
+        overflow-x-auto
+        overscroll-x-contain
+        [scrollbar-width:none]
+        [-ms-overflow-style:none]
+        [&::-webkit-scrollbar]:hidden
 
-              return (
-                <div
-                  key={item.label}
-                  className="
+        md:grid
+        md:grid-cols-2
+        md:gap-5
+        md:overflow-visible
+
+        xl:grid-cols-4
+      "
+    >
+      {[
+        {
+          label: '+ 24 ans d’expérience',
+          text: 'Une entreprise implantée localement et une expérience construite sur le terrain.',
+          icon: Medal,
+        },
+        {
+          label: 'Diagnostic',
+          text: 'Une intervention expliquée clairement avant de lancer les travaux.',
+          icon: SearchCheck,
+        },
+        {
+          label: 'Sécurité',
+          text: 'Des installations pensées pour être sûres, durables et faciles à maintenir.',
+          icon: ShieldCheck,
+        },
+        {
+          label: 'Proximité',
+          text: 'Triel-sur-Seine et les communes voisines au cœur de notre secteur.',
+          icon: MapPin,
+        },
+      ].map((item) => {
+        const Icon = item.icon
+
+        return (
+          <div
+            key={item.label}
+            className="
               group
+
               min-h-[220px]
+              min-w-[82vw]
+              max-w-[82vw]
+              snap-start
+
               rounded-[20px]
-              border border-black/[0.06]
+              border
+              border-black/[0.06]
               bg-white
-              p-4
+              p-5
+
               shadow-[0_16px_40px_rgba(0,0,0,0.05)]
+
               transition-all
               duration-300
+
               hover:-translate-y-1
               hover:shadow-[0_22px_50px_rgba(0,0,0,0.08)]
+
               md:min-h-[250px]
+              md:min-w-0
+              md:max-w-none
               md:rounded-[24px]
               md:p-7
             "
-                >
-                  <div className="flex h-full items-center gap-4 md:gap-5">
-                    <div
-                      className="
+          >
+            <div className="flex h-full items-center gap-4 md:gap-5">
+              <div
+                className="
                   flex
                   h-12
                   w-12
@@ -345,58 +384,61 @@ export default async function HomePage() {
                   transition-all
                   duration-300
                   group-hover:scale-105
+
                   md:h-14
                   md:w-14
                   md:rounded-2xl
                 "
-                    >
-                      <Icon
-                        strokeWidth={1.7}
-                        className="
+              >
+                <Icon
+                  strokeWidth={1.7}
+                  className="
                     h-[22px]
                     w-[22px]
                     text-[#171714]
                     transition-colors
                     duration-300
                     group-hover:text-[#f26422]
+
                     md:h-[26px]
                     md:w-[26px]
                   "
-                      />
-                    </div>
+                />
+              </div>
 
-                    <div className="min-w-0 flex-1">
-                      <h3
-                        className="
+              <div className="min-w-0 flex-1">
+                <h3
+                  className="
                     text-[1.1rem]
                     font-black
                     leading-[1.1]
                     tracking-[-0.04em]
                     text-[#171714]
+
                     md:text-[1.25rem]
                   "
-                      >
-                        {item.label}
-                      </h3>
+                >
+                  {item.label}
+                </h3>
 
-                      <p
-                        className="
+                <p
+                  className="
                     mt-4
                     text-[13px]
                     leading-6
                     text-black/50
                   "
-                      >
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                >
+                  {item.text}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        )
+      })}
+    </div>
+  </div>
+</section>
 
       <section id="services" className="bg-[#f4f0e7] py-20 md:py-28">
         <div className="container">

@@ -31,7 +31,26 @@ export async function ServiceGrid() {
   const services = await getServices()
 
   return (
-    <div className="grid grid-cols-2 gap-4 md:gap-6 xl:grid-cols-4">
+    <div
+      className="
+        flex
+        snap-x
+        snap-mandatory
+        gap-4
+        overflow-x-auto
+        overscroll-x-contain
+        [scrollbar-width:none]
+        [-ms-overflow-style:none]
+        [&::-webkit-scrollbar]:hidden
+
+        md:grid
+        md:grid-cols-2
+        md:gap-6
+        md:overflow-visible
+
+        xl:grid-cols-4
+      "
+    >
       {services.map((service) => {
         const Icon =
           SERVICE_ICONS[service.name as keyof typeof SERVICE_ICONS]
@@ -42,17 +61,29 @@ export async function ServiceGrid() {
             href={`/services/${service.slug}`}
             className="
               group
+
               min-h-[220px]
+              min-w-[82vw]
+              max-w-[82vw]
+              snap-start
+
               rounded-[20px]
-              border border-black/6
+              border
+              border-black/6
               bg-white
-              p-4
+              p-5
+
               shadow-[0_18px_50px_rgba(0,0,0,0.06)]
+
               transition-all
               duration-300
+
               hover:-translate-y-1
               hover:shadow-[0_24px_60px_rgba(0,0,0,0.10)]
+
               md:min-h-[250px]
+              md:min-w-0
+              md:max-w-none
               md:rounded-[24px]
               md:p-8
             "
@@ -67,11 +98,15 @@ export async function ServiceGrid() {
                     shrink-0
                     items-center
                     justify-center
+
                     rounded-xl
                     bg-[#f6f3ec]
+
                     transition-all
                     duration-300
+
                     group-hover:scale-105
+
                     md:h-14
                     md:w-14
                     md:rounded-2xl
@@ -83,9 +118,12 @@ export async function ServiceGrid() {
                       h-[22px]
                       w-[22px]
                       text-[#171714]
+
                       transition-colors
                       duration-300
+
                       group-hover:text-[#bd9254]
+
                       md:h-[26px]
                       md:w-[26px]
                     "
@@ -101,6 +139,7 @@ export async function ServiceGrid() {
                     leading-[1.1]
                     tracking-[-0.04em]
                     text-[#171714]
+
                     md:text-[1.4rem]
                   "
                 >
